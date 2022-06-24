@@ -21,9 +21,9 @@ def ovitoMain1():
     pos_property = data.particles.positions
 
     for pos in pos_property:
-      sli1.append(pos[0])
-      sli2.append(pos[1])
-      sli3.append(pos[2])
+        sli1.append(pos[0])
+        sli2.append(pos[1])
+        sli3.append(pos[2])
 
     maX1 = max(sli1)
     miX2 = min(sli1)
@@ -152,17 +152,20 @@ def ovitoMain1():
     vp.fov = 0.0074746
     vp.camera_pos = (0.0104947, -5e-05, 0.00560304)
     vp.camera_dir = (0, 1, 0)
-    vp.render_image(size=(1600, 1200), filename=dutDir + "ViewSide.png", background=(1, 1, 1), frame=1)
+    vp.render_image(size=(1600, 1200), filename=dutDir + "ViewSide.png", background=(1, 1, 1), frame=1,
+                    renderer=OSPRayRenderer())
 
     vp.fov = 0.00711783
     vp.camera_pos = (0.0108255, 3.11667e-05, 0)
     vp.camera_dir = (0, 0, -1)
-    vp.render_image(size=(1600, 1200), filename=dutDir + "ViewTop.png", background=(1, 1, 1), frame=1)
+    vp.render_image(size=(1600, 1200), filename=dutDir + "ViewTop.png", background=(1, 1, 1), frame=1,
+                    renderer=OSPRayRenderer())
 
     vp.fov = 0.00410214
     vp.camera_pos = (0.0506625, -0.000560686, 0.00497058)
     vp.camera_dir = (1, 0, 0)
-    vp.render_image(size=(1600, 1200), filename=dutDir + "ViewFront.png", background=(1, 1, 1), frame=1)
+    vp.render_image(size=(1600, 1200), filename=dutDir + "ViewFront.png", background=(1, 1, 1), frame=1,
+                    renderer=OSPRayRenderer())
 
     pipeline.modifiers.append(SliceModifier(distance=0, normal=(0.0, 1.0, 0.0)))
     pipeline.compute()
@@ -170,7 +173,8 @@ def ovitoMain1():
     vp.fov = 0.00743406
     vp.camera_pos = (0.00996866, 0, 0.00320925)
     vp.camera_dir = (0, -1, 0)
-    vp.render_image(size=(1600, 1200), filename=dutDir + "ViewSlice.png", background=(1, 1, 1), frame=1)
+    vp.render_image(size=(1600, 1200), filename=dutDir + "ViewSlice.png", background=(1, 1, 1), frame=1,
+                    renderer=OSPRayRenderer())
 
     # Create a viewport:
     # viewport = Viewport(type=Viewport.Type.Top)
