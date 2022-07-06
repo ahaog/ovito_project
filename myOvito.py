@@ -153,19 +153,25 @@ def ovitoMain1():
     vp.camera_pos = (0.0104947, -5e-05, 0.00560304)
     vp.camera_dir = (0, 1, 0)
     vp.render_image(size=(1600, 1200), filename=dutDir + "ViewSide.png", background=(1, 1, 1), frame=1,
-                    renderer=OSPRayRenderer())
+                    renderer=OSPRayRenderer(ambient_brightness=0.6, ambient_light_enabled=True, denoising_enabled=True,
+                                            direct_light_enabled=True, direct_light_intensity=1.0,
+                                            material_shininess=10.0, refinement_iterations=8, samples_per_pixel=4))
 
     vp.fov = 0.00711783
     vp.camera_pos = (0.0108255, 3.11667e-05, 0)
     vp.camera_dir = (0, 0, -1)
     vp.render_image(size=(1600, 1200), filename=dutDir + "ViewTop.png", background=(1, 1, 1), frame=1,
-                    renderer=OSPRayRenderer())
+                    renderer=OSPRayRenderer(ambient_brightness=0.6, ambient_light_enabled=True, denoising_enabled=True,
+                                            direct_light_enabled=True, direct_light_intensity=1.0,
+                                            material_shininess=10.0, refinement_iterations=8, samples_per_pixel=4))
 
     vp.fov = 0.00410214
     vp.camera_pos = (0.0506625, -0.000560686, 0.00497058)
     vp.camera_dir = (1, 0, 0)
     vp.render_image(size=(1600, 1200), filename=dutDir + "ViewFront.png", background=(1, 1, 1), frame=1,
-                    renderer=OSPRayRenderer())
+                    renderer=OSPRayRenderer(ambient_brightness=0.6, ambient_light_enabled=True, denoising_enabled=True,
+                                            direct_light_enabled=True, direct_light_intensity=1.0,
+                                            material_shininess=10.0, refinement_iterations=8, samples_per_pixel=4))
 
     pipeline.modifiers.append(SliceModifier(distance=0, normal=(0.0, 1.0, 0.0)))
     pipeline.compute()
@@ -174,7 +180,9 @@ def ovitoMain1():
     vp.camera_pos = (0.00996866, 0, 0.00320925)
     vp.camera_dir = (0, -1, 0)
     vp.render_image(size=(1600, 1200), filename=dutDir + "ViewSlice.png", background=(1, 1, 1), frame=1,
-                    renderer=OSPRayRenderer())
+                    renderer=OSPRayRenderer(ambient_brightness=0.6, ambient_light_enabled=True, denoising_enabled=True,
+                                            direct_light_enabled=True, direct_light_intensity=1.0,
+                                            material_shininess=10.0, refinement_iterations=8, samples_per_pixel=4))
 
     # Create a viewport:
     # viewport = Viewport(type=Viewport.Type.Top)
